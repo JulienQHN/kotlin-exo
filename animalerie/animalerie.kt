@@ -2,22 +2,20 @@ fun main(){
     println("Constate mon animalerie du seigneur : ")
     println("")
     val ajoutetAfficheanimalerie = Animalerie()
-    ajoutetAfficheanimalerie.add()
+    ajoutetAfficheanimalerie.add(Chien())
     ajoutetAfficheanimalerie.affiche()
     ajoutetAfficheanimalerie.parler()
 
 
 }
 
-class Animalerie(){
+class Animalerie{
+    var ToutLesAnimaux = mutableListOf<Animal>()
 
-    fun add() {
-
-        val LesAnimaux  = mutableListOf(Chien(),Chat(),Perroquet())
-        LesAnimaux += listOf(Chien())
-        println("Les animaux de la ferme sont :"+ LesAnimaux)
-
-        }
+    fun add(LesAnimaux: Animal){
+        ToutLesAnimaux.add(LesAnimaux)
+        println("Les animaux de la ferme sont :"+ ToutLesAnimaux)
+    }
 
 
     fun affiche(){
@@ -46,8 +44,8 @@ class Animalerie(){
 }
 
 interface Animal {
-    fun parler()
-    fun quiSuisJe()
+    fun parler(){}
+    fun quiSuisJe(){}
 }
 
     class Chien : Animal {
